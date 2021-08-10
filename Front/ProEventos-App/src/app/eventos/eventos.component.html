@@ -1,5 +1,60 @@
 <p>eventos works!</p>
 
-<div *ngFor="let evento of eventos">
-  <p>{{ evento.local }}</p>
-</div>
+<form action="" class="form-inline d-flex justify-content-end">
+  <div class="form-group mb-2">
+    <input
+      type="text"
+      class="form-control mr-2"
+      placeholder="buscar"
+      [(ngModel)]="filtroLista"
+    />
+  </div>
+</form>
+<br />
+<!-- <h5>Filtro: {{ filtroLista }}</h5> -->
+<table class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th>#</th>
+      <th>
+        <button class="btn btn-outline-light btn-sm" (click)="alterarImagem()">
+          Mostrar
+        </button>
+      </th>
+      <th>Tema</th>
+      <th>Local</th>
+      <th>Data</th>
+      <th>Qtd</th>
+      <th>Lote</th>
+      <th>Opções</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="eventosFiltrados && eventosFiltrados.length">
+    <tr *ngFor="let evento of eventosFiltrados">
+      <td>{{ evento.local }}</td>
+      <td>
+        <img
+          src="/assets/images/foto.jpg"
+          [style.width.px]="100"
+          alt="foto de evento"
+        />
+      </td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>
+        <button class="btn btn-outline-success btn-sm mr-2">Editar</button>
+        <button class="btn btn-outline-danger btn-sm">Excluir</button>
+      </td>
+    </tr>
+  </tbody>
+  <tfoot *ngIf="!eventosFiltrados.length">
+    <tr>
+      <td colspan="8" class="text-center">
+        <h5>Nenhum evento encontrado</h5>
+      </td>
+    </tr>
+  </tfoot>
+</table>
