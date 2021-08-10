@@ -28,5 +28,18 @@ namespace ProEventos.API.Controllers
       return _context.Eventos.Where(c => c.Id == id);
     }
 
+    [HttpGet("{tema}/tema")]
+    public async Task<IActionResult> GetByTema(string tema)
+    {
+      try
+      {
+        return Ok();
+      }
+      catch (Exception exc)
+      {
+        return Ok();
+      }
+    }
+
   }
 }
