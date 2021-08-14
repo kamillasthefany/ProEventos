@@ -17,6 +17,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
     PalestrantesComponent,
     NavComponent,
     DateTimeFormatPipe,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
