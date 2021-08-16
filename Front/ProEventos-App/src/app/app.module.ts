@@ -6,9 +6,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { EventosComponent } from './eventos/eventos.component';
-import { PalestrantesComponent } from './palestrantes/palestrantes.component';
-import { NavComponent } from './nav/nav.component';
+import { EventosComponent } from './components/eventos/eventos.component';
+import { PalestrantesComponent } from './components/palestrantes/palestrantes.component';
+import { NavComponent } from './shared/nav/nav.component';
 import { DateTimeFormatPipe } from './helpers/DateTimeFormat.pipe';
 
 import { CollapseModule } from 'ngx-bootstrap/collapse';
@@ -17,7 +17,13 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from "ngx-spinner";
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './components/login/login.component';
+import { ContatosComponent } from './components/contatos/contatos.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { PerfilComponent } from './components/perfil/perfil.component';
+import { TituloComponent } from './shared/titulo/titulo.component';
+import { NavbarComponent } from './shared/navbar/navbar.component';
+import { EventoService } from './services/evento.service';
 
 @NgModule({
   declarations: [
@@ -27,6 +33,11 @@ import { LoginComponent } from './login/login.component';
     NavComponent,
     DateTimeFormatPipe,
     LoginComponent,
+    ContatosComponent,
+    DashboardComponent,
+    PerfilComponent,
+    TituloComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +57,7 @@ import { LoginComponent } from './login/login.component';
     }),
     NgxSpinnerModule
   ],
-  providers: [],
+  providers: [EventoService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
