@@ -1,0 +1,79 @@
+<br />
+<div class="card rounded shadow-sm p-5">
+  <form class="d-flex">
+    <div class="flex-fill pr-3">
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text">Filtro:</div>
+        </div>
+        <input type="text" class="form-control" placeholder="buscar" [(ngModel)]="filtroLista">
+      </div>
+    </div>
+    <div>
+      <a class="d-flex btn btn-outline-secondary" routerLink="/eventos/detalhe">
+        <i class="fa fa-plus my-1"></i>
+        <b class="ml-1 d-none d-sm-block">Novo</b>
+      </a>
+    </div>
+  </form>
+  <br />
+  <!-- <h5>Filtro: {{ filtroLista }}</h5> -->
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th>#</th>
+        <th class="d-none d-md-table-cell">
+          <button class="btn btn-outline-light btn-sm" (click)="alterarImagem()" tooltip="Mostrar imagem">
+            Mostrar
+          </button>
+        </th>
+        <th>Tema</th>
+        <th class="d-none d-md-table-cell">Local</th>
+        <th>Data</th>
+        <th class="d-none d-md-table-cell">Qtd</th>
+        <th class="d-none d-md-table-cell">Lote</th>
+        <th>Opções</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="eventosFiltrados && eventosFiltrados.length">
+      <tr *ngFor="let evento of eventosFiltrados">
+        <td class="d-none d-md-table-cell">{{ evento.local }}</td>
+        <td class="d-none d-md-table-cell">
+          <img src="/assets/images/foto.jpg" [style.width.px]="100" alt="foto de evento" />
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="d-none d-md-table-cell"></td>
+        <td class="d-none d-md-table-cell"></td>
+        <td>
+          <!-- <button class="btn btn-outline-success btn-sm mr-2">Editar</button> -->
+          <button class="btn btn-outline-danger btn-sm">Excluir</button>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot *ngIf="!eventosFiltrados.length">
+      <tr>
+        <td colspan="8" class="text-center">
+          <h5>Nenhum evento encontrado</h5>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+
+<!-- <button
+  class="btn btn-outline-danger btn-sm"
+  (click)="openModal(template)"
+></button> -->
+<ng-template #template>
+  <div class="modal-body text-center">
+    <p>Confirmar?</p>
+    <button type="button" class="btn btn-default" (click)="confirm()">
+      Sim
+    </button>
+    <button type="button" class="btn btn-primary" (click)="decline()">
+      Não
+    </button>
+  </div>
+</ng-template>
