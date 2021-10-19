@@ -7,24 +7,34 @@ import { EventoListaComponent } from './components/eventos/evento-lista/evento-l
 import { EventosComponent } from './components/eventos/eventos.component';
 import { LoginComponent } from './components/login/login.component';
 import { PalestrantesComponent } from './components/palestrantes/palestrantes.component';
-import { PerfilComponent } from './components/perfil/perfil.component';
+import { PerfilComponent } from './components/user/perfil/perfil.component';
+import { RegistrationComponent } from './components/user/registration/registration.component';
+import { UserComponent } from './components/user/user.component';
 
 const routes: Routes = [
+  {
+    path: 'user', component: UserComponent,
+    children: [
+      { path: 'login', component: LoginComponent },
+      { path: 'registration', component: RegistrationComponent },
+    ]
+  },
+  { path: 'eventos', redirectTo: 'eventos/lista' },
   {
     path: 'eventos', component: EventosComponent,
     children: [
       { path: 'detalhe/:id', component: EventoDetalheComponent },
-      { path: 'detalhe', component: EventosComponent },
+      { path: 'detalhe', component: EventoDetalheComponent },
       { path: 'lista', component: EventoListaComponent },
     ]
   },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'perfil', component: PerfilComponent },
+  { path: 'user/perfil', component: PerfilComponent },
   { path: 'palestrantes', component: PalestrantesComponent },
   { path: 'contatos', component: ContatosComponent },
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: '**', redirectTo: 'dashboard', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
+  // { path: 'login', component: LoginComponent },
 ];
 
 @NgModule({
