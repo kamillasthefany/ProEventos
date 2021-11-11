@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm" *ngIf="showMenu()">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">ProEvento</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02"
@@ -24,6 +24,26 @@
         </li>
       </ul>
       <ul class="navbar-nav">
+
+        <li class="nav-item dropdown" dropdown>
+          <a dropdownToggle class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Usuário
+          </a>
+          <div *dropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="#">
+              Perfil
+            </a>
+            <div role="separator" class="divider"></div>
+            <a class="dropdown-item" routerLink="user/login">
+              Sair
+            </a>
+          </div>
+        </li>
+
+
+      </ul>
+      <!-- <ul class="navbar-nav">
         <li class="nav-item dropdown" dropdown>
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true"
             aria-expanded="false">Dropdown</a>
@@ -35,7 +55,7 @@
             <a class="dropdown-item" routerLink="user/registration">Sair</a>
           </div>
         </li>
-      </ul>
+      </ul> -->
       <!-- <form class="d-flex">
         <input class="form-control me-sm-2" type="text" placeholder="Search" />
         <button class="btn btn-secondary my-2 my-sm-0" type="submit">
